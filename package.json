@@ -10,6 +10,7 @@
   "dependencies": {
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
+    "@jaewoong2/dui": "^0.0.4",
     "@vitejs/plugin-react": "^2.0.0",
     "prettier": "^2.7.1",
     "react": "^18.2.0",
