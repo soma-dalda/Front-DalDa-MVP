@@ -4,5 +4,14 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 import eslint from 'vite-plugin-eslint';
 
 export default defineConfig({
-  plugins: [react(), tsconfigPaths(), eslint()],
+  plugins: [
+    react({
+      jsxImportSource: '@emotion/react',
+      babel: {
+        plugins: ['@emotion/babel-plugin'],
+      },
+    }),
+    tsconfigPaths(),
+    eslint(),
+  ],
 });
