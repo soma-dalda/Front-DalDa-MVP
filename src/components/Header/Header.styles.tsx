@@ -14,6 +14,11 @@ export const ImageContainer = styled.figure`
 `;
 
 export const MenuButton = styled.button`
-  margin-right: 20px;
+  width: 20px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 15px;
   font-size: 1em;
 `;

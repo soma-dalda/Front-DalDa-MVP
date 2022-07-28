@@ -1,3 +1,4 @@
+import { HamburgerIcon } from '@jaewoong2/dui';
 import React from 'react';
 import { LOGO_URL } from '../../assets';
 import * as Styled from './Header.styles';
@@ -16,7 +17,7 @@ function Header({ logo = LOGO_URL, onClickMenu }: Props) {
         </Styled.ImageContainer>
       </a>
       <Styled.MenuButton type="button" aria-label="메뉴" onClick={onClickMenu}>
-        메뉴
+        <HamburgerIcon />
       </Styled.MenuButton>
     </Styled.Navigation>
   );
