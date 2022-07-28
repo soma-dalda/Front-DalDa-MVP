@@ -1,7 +1,7 @@
-import react from '@vitejs/plugin-react';
-import { defineConfig } from 'vite';
-import tsconfigPaths from 'vite-tsconfig-paths';
-import eslint from 'vite-plugin-eslint';
+import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite'
+import tsconfigPaths from 'vite-tsconfig-paths'
+import eslint from 'vite-plugin-eslint'
 
 export default defineConfig({
   plugins: [
@@ -14,4 +14,4 @@ export default defineConfig({
     tsconfigPaths(),
     eslint(),
   ],
-});
+})
