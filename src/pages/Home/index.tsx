@@ -1,14 +1,10 @@
 import React, { useState } from 'react';
 import { Main, BottomSheet, FooterDalda } from '@jaewoong2/dui';
-// import { BiCake } from 'react-icons/bi';
-// import { FiCoffee } from 'react-icons/fi';
-
 import * as Styled from './Home.styles';
 import Header from '../../components/Header';
 import { Banner } from './Banner';
 import { Search } from './Search';
 import { Boxes, Boxes as MainOrderButtons } from './Boxes';
-// import { Carousel } from '../../components/Slick/Carousel';
 
 // const getLocation = () => {
 //   if (navigator.geolocation) {
