@@ -54,8 +54,7 @@ export const SquareBox = styled.button<SqureButtonType>`
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
-  padding: 10px;
-  width: 200px;
+  width: 100%;
   height: 180px;
   border-radius: 16px;
   cursor: pointer;

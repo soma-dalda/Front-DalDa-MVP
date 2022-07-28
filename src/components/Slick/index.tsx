@@ -27,6 +27,9 @@ interface SliderProps {
 function Slick({ children, speed = 700, slidesToShow = 1, length }: SliderProps) {
   const settings = useMemo<Settings>(
     () => ({
+      autoplay: true,
+      accessibility: true,
+      autoplaySpeed: 4000,
       centerMode: false,
       dots: false,
       infinite: true,

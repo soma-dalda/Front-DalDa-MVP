@@ -11,7 +11,7 @@ type Props = {
 function Header({ logo = LOGO_URL, onClickMenu }: Props) {
   return (
     <Styled.Navigation>
-      <a href="/#">
+      <a href="/">
         <Styled.ImageContainer>
           <img src={logo} alt="로고 이미지" />
         </Styled.ImageContainer>

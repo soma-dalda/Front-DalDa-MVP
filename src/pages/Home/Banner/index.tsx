@@ -4,7 +4,7 @@ import { Carousel } from '../../../components/Slick/Carousel';
 
 export function Banner() {
   return (
-    <Slick width="calc(100% - 15px)" height="120px" length={1}>
+    <Slick width="100%" height="120px" length={1}>
       <Carousel
         className="shadow-sm cursor-pointer"
         alt="카로셀 이미지"

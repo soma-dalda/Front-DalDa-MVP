@@ -23,6 +23,7 @@ const ImageContainer = styled.div`
 const Image = styled.img`
   width: auto;
   height: 100%;
+  z-index: 2;
 `;
 
 type CarouselProps = {
