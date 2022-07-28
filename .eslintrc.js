@@ -23,6 +23,7 @@ module.exports = {
     'react/jsx-filename-extension': [0, { extensions: ['.js', '.jsx', '.tsx'] }],
     semi: 'off',
     '@typescript-eslint/semi': ['error'],
+    '@typescript-eslint/semi': 'off',
     'no-shadow': ['off', {}],
     'import/prefer-default-export': 'off',
     'react/prop-types': 'off',
@@ -34,6 +35,7 @@ module.exports = {
         endOfLine: 'auto',
       },
     ],
+    'react/jsx-props-no-spreading': [0],
     'import/extensions': [
       'error',
       'ignorePackages',
@@ -52,4 +54,4 @@ module.exports = {
       },
     },
   },
-};
+}
