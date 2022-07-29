@@ -11,7 +11,6 @@ export const Column = styled(Main.Column)`
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
-
   footer {
     position: relative;
     margin-top: 20px;
@@ -21,6 +20,12 @@ export const Column = styled(Main.Column)`
     z-index: 999;
     position: absolute;
   }
+
+  ${({ theme }) =>
+    theme.isMobile &&
+    css`
+      margin-top: 42px;
+    `}
 `
 
 export const Section = styled(Main.Section)`
