@@ -20,7 +20,7 @@ function Layout({
       <Styled.Column>
         <Styled.Section className="shadow-2xl">
           <Header onClickMenu={() => setVisible((prev) => !prev)} />
-          <div className="min-h-full flex flex-col justify-between">
+          <div className="min-h-screen flex flex-col justify-between">
             {children}
             <FooterDalda />
           </div>
