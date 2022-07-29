@@ -19,6 +19,7 @@ export const ImageContainer = styled.figure`
 `
 
 export const MenuButton = styled.button`
+  z-index: 9999;
   width: 20px;
   height: 100%;
   display: flex;
@@ -26,4 +27,8 @@ export const MenuButton = styled.button`
   align-items: center;
   margin-right: 15px;
   font-size: 1em;
+
+  svg {
+    width: 100%;
+  }
 `
