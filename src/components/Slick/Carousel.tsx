@@ -1,5 +1,6 @@
 import React, { PropsWithChildren } from 'react'
 import styled from '@emotion/styled'
+import Image from '../Image'
 
 const CarouselContainer = styled.div`
   display: flex;
@@ -20,7 +21,7 @@ const ImageContainer = styled.div`
   height: 100%;
 `
 
-const Image = styled.img`
+const CarouselImage = styled(Image)`
   width: auto;
   height: 100%;
   z-index: 2;
@@ -39,7 +40,7 @@ export function Carousel({
   return (
     <CarouselContainer {...props}>
       <ImageContainer>
-        <Image src={src} alt={alt} />
+        <CarouselImage data-src={src} alt={alt} loading="lazy" />
       </ImageContainer>
     </CarouselContainer>
   )
