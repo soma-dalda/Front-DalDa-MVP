@@ -55,22 +55,11 @@ export const SquareBox = styled.button<SqureButtonType>`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 180px;
+  height: 160px;
   border-radius: 16px;
   cursor: pointer;
 
   box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px 0px inset, rgba(0, 0, 0, 0.06) 0px -2px 1px 0px inset;
-  .order {
-    font-size: 1.6em;
-    margin-left: 10px;
-    font-weight: bold;
-  }
-
-  .caption {
-    margin-left: 10px;
-    font-size: 0.9em;
-    color: #888888;
-  }
 
   &::before {
     position: absolute;
@@ -83,25 +72,17 @@ export const SquareBox = styled.button<SqureButtonType>`
 `
 
 export const Rect = styled.button`
-  margin-top: 10px;
+  margin-top: 20px;
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 10px 20px;
+  justify-content: center;
+  padding: 0px 10px;
   width: 100%;
-  height: 70px;
+  height: 60px;
   background-color: ${({ theme }) => theme.color.searchInputBG};
   border-radius: 16px;
   cursor: pointer;
-
-  .order {
-    font-size: 1.2em;
-    font-weight: bold;
-  }
-
-  .caption {
-    font-size: 0.9em;
-  }
 
   &::after {
     position: absolute;
@@ -110,5 +91,13 @@ export const Rect = styled.button`
     height: 70px;
     bottom: 0px;
     right: 20px;
+  }
+
+  h4 {
+    font-size: 0.9em;
+  }
+
+  span {
+    font-size: 0.8em;
   }
 `
