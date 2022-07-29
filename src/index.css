@@ -8,8 +8,6 @@ html,
 #root {
   background-color: #efeab8c8;
   font-size: 16px;
-  height: 100%;
-  overflow-y: hidden;
 }
 
 * {
