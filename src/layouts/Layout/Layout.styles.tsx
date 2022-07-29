@@ -19,6 +19,7 @@ export const Column = styled(Main.Column)`
 
   div[role='dialog'] {
     z-index: 999;
+    position: absolute;
   }
 `
 
