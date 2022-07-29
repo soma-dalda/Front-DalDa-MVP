@@ -2,7 +2,7 @@ import React, { useMemo } from 'react'
 import { css, Global } from '@emotion/react'
 import { useRecoilValue } from 'recoil'
 import { getMobileDetect } from '../../utils/getMobileDetect'
-import { BottomSheetState } from '../../recoil/atoms/bottomsheetState'
+import { BottomSheetState } from '../../recoil/atoms/BottomsheetState'
 
 function GlobalStyle() {
   const isMobile = getMobileDetect().isMobile()

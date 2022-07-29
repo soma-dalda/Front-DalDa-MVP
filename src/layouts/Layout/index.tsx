@@ -1,8 +1,8 @@
 import { BottomSheet, FooterDalda, Main } from '@jaewoong2/dui'
 import React, { PropsWithChildren } from 'react'
 import { useRecoilState } from 'recoil'
+import { BottomSheetState } from '../../recoil/atoms/BottomsheetState'
 import Header from '../../components/Header'
-import { BottomSheetState } from '../../recoil/atoms/bottomsheetState'
 import * as Styled from './Layout.styles'
 
 type LayoutProps = {
@@ -21,7 +21,7 @@ function Layout({
     <Main>
       <Styled.Column>
         <Styled.Section className="shadow-2xl">
-          <Header onClickMenu={() => setVisible((prev) => !prev)} />
+          <Header onClickMenu={() => setVisible((prev: boolean) => !prev)} />
           <div className="min-h-screen flex flex-col justify-between">
             {children}
             <FooterDalda />
