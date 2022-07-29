@@ -7,6 +7,7 @@ import { DUIThemeProvider } from '@jaewoong2/dui'
 
 import './index.css'
 import App from './App'
+import GlobalStyle from './styles/Theme/GlobalStyle'
 
 const queryClient = new QueryClient()
 
@@ -16,6 +17,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
       <QueryClientProvider client={queryClient}>
         <RecoilRoot>
           <BrowserRouter>
+            <GlobalStyle />
             <App />
           </BrowserRouter>
         </RecoilRoot>
