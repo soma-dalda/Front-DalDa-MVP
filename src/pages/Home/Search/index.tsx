@@ -8,12 +8,17 @@ type Props = {
 
 export function Search({
   title,
+  className,
   ...props
 }: Props & Omit<React.InputHTMLAttributes<HTMLInputElement>, 'title'>) {
   return (
     <Styled.SearchContaeinr>
       <Styled.SearchTitle>{title}</Styled.SearchTitle>
-      <DSearch placeholder="우리동네 케이크를 검색하세요" {...props} />
+      <DSearch
+        placeholder="우리동네 케이크를 검색하세요"
+        className={`search ${className}`}
+        {...props}
+      />
     </Styled.SearchContaeinr>
   )
 }
