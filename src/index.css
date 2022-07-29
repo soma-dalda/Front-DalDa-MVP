@@ -13,3 +13,18 @@ html,
 * {
   font-family: 'Spoqa Han Sans Neo', 'sans-serif' !important;
 }
+
+@layer components {
+  .col-center {
+    @apply flex flex-col;
+    @apply items-center justify-center;
+  }
+
+  .bottomsheet-container {
+    @apply w-full h-full fixed flex justify-center z-[1000] left-0 top-0;
+  }
+
+  .bottomsheet-wrapper {
+    @apply max-w-5xl relative w-full h-full flex justify-center;
+  }
+}

@@ -1,9 +1,8 @@
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 import { Main } from '@jaewoong2/dui'
-import { getMobileDetect } from '../../utils/getMobileDetect'
 
-export const Column = styled(Main.Column)`
+export const Column = styled(Main.Column)<{ isBottomSheet: boolean }>`
   background-color: #fff;
   height: 100%;
   position: relative;
@@ -17,9 +16,28 @@ export const Column = styled(Main.Column)`
     margin-top: 20px;
   }
 
-  div[role='dialog'] {
-    z-index: 999;
-    position: absolute;
+  ${({ theme }) =>
+    theme.isMobile &&
+    css`
+      margin-top: 42px;
+    `}
+
+  ${({ theme, isBottomSheet }) =>
+    (theme.isMobile || isBottomSheet) &&
+    css`
+      overflow-y: hidden;
+    `}
+
+
+    @media screen and (max-width:1024px) {
+    div[role='dialog'] {
+      z-index: 999;
+      position: absolute;
+    }
+
+    .bottomsheet-wrapper {
+      max-width: ${({ theme: { isMobile } }) => (isMobile ? '100%' : '450px')};
+    }
   }
 `
 
@@ -32,11 +50,6 @@ export const Section = styled(Main.Section)`
   footer {
     width: 100%;
   }
-
-  ${getMobileDetect().isMobile() &&
-  css`
-    overflow-y: hidden;
-  `}
 `
 
 export const Button = styled.button`

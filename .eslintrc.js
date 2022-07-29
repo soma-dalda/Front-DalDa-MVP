@@ -20,6 +20,7 @@ module.exports = {
   },
   plugins: ['react', '@typescript-eslint'],
   rules: {
+    'consistent-return': [0],
     'react/jsx-filename-extension': [0, { extensions: ['.js', '.jsx', '.tsx'] }],
     semi: 'off',
     '@typescript-eslint/semi': ['error'],
