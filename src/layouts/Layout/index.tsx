@@ -19,7 +19,7 @@ function Layout({
 
   return (
     <Main>
-      <Styled.Column>
+      <Styled.Column isBottomSheet={visible}>
         <Header onClickMenu={() => setVisible((prev: boolean) => !prev)} />
         <Styled.Section className="shadow-2xl">
           <div className="min-h-screen flex flex-col justify-between">
@@ -27,18 +27,16 @@ function Layout({
             <FooterDalda />
           </div>
         </Styled.Section>
-        <div
-          className={`${
-            visible ? 'block' : 'hidden'
-          } w-screen h-screen absolute z-[1000] left-0 top-0`}
-        >
-          <BottomSheet
-            defaultHeight={BottomSheetDefaultHeight ?? '400px'}
-            visible={visible}
-            setVisible={setVisible}
-          >
-            {BottomSheetChildren}
-          </BottomSheet>
+        <div className={`${visible ? 'flex' : 'hidden'} bottomsheet-container`}>
+          <div className="bottomsheet-wrapper">
+            <BottomSheet
+              defaultHeight={BottomSheetDefaultHeight ?? '400px'}
+              visible={visible}
+              setVisible={setVisible}
+            >
+              {BottomSheetChildren}
+            </BottomSheet>
+          </div>
         </div>
       </Styled.Column>
     </Main>
