@@ -20,6 +20,8 @@ export const Section = styled(Main.Section)`
   width: 100%;
   height: 100%;
   min-height: 100vh;
+  z-index: 9999;
+  -webkit-overflow-scrolling: touch;
 
   footer {
     width: 100%;

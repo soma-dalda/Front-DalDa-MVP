@@ -10,13 +10,19 @@ export const SearchContaeinr = styled.div`
   div {
     right: 15px;
   }
+
+  .search {
+    padding-bottom: 11px;
+    padding-top: 11px;
+    font-size: 0.9em;
+  }
 `
 export const SearchTitle = styled.div`
   margin-left: 10px;
-  font-size: 1.5em;
-  font-weight: bold;
+  font-size: 1.25em;
+  font-weight: 600;
   margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 
   b {
     color: #ff820a;

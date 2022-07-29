@@ -17,8 +17,8 @@ function SqureButton({
 }: SqureButtonType & React.ButtonHTMLAttributes<HTMLButtonElement>) {
   return (
     <Styled.SquareBox className={`shadow-inner ${className}`} {...props}>
-      <h4 className="order">{h4}</h4>
-      <span className="caption">{caption}</span>
+      <h4 className="order ml-3 text-lg font-bold">{h4}</h4>
+      <span className="caption ml-3 text-sm text-gray-700 ">{caption}</span>
     </Styled.SquareBox>
   )
 }
@@ -26,12 +26,13 @@ function SqureButton({
 function RectButton({
   h4,
   caption,
+  className,
   ...props
 }: SqureButtonType & React.ButtonHTMLAttributes<HTMLButtonElement>) {
   return (
-    <Styled.Rect {...props}>
-      <h4 className="order">{h4}</h4>
-      <span className="caption">{caption}</span>
+    <Styled.Rect className={`${className}`} {...props}>
+      <h4 className="order font-bold ">{h4}</h4>
+      <span className="caption text-gray-700">{caption}</span>
     </Styled.Rect>
   )
 }
