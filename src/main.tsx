@@ -8,7 +8,12 @@ import { DUIThemeProvider } from '@jaewoong2/dui'
 import './index.css'
 import App from './App'
 import GlobalStyle from './styles/Theme/GlobalStyle'
+import { worker } from './mocks/browser'
 
+if (process.env.NODE_ENV === 'development') {
+  // eslint-disable-next-line global-require
+  worker.start()
+}
 const queryClient = new QueryClient()
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(

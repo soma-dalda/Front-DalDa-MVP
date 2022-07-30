@@ -25,9 +25,12 @@ function GlobalStyle() {
       visible
         ? css`
             overflow-y: hidden;
+            touch-action: none;
           `
         : css`
             overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            touch-action: auto;
           `,
     [visible]
   )
