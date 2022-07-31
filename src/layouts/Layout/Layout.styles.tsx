@@ -3,24 +3,19 @@ import styled from '@emotion/styled'
 import { Main } from '@jaewoong2/dui'
 
 export const Column = styled(Main.Column)<{ isBottomSheet: boolean }>`
-  background-color: #fff;
   height: 100%;
   position: relative;
-  max-height: 100%;
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
+  background-color: #fff;
 
   footer {
     position: relative;
     margin-top: 20px;
   }
 
-  ${({ theme }) =>
-    theme.isMobile &&
-    css`
-      margin-top: 40px;
-    `}
+  margin-top: 40px;
 
   ${({ theme, isBottomSheet }) =>
     (theme.isMobile || isBottomSheet) &&
@@ -28,8 +23,12 @@ export const Column = styled(Main.Column)<{ isBottomSheet: boolean }>`
       overflow-y: hidden;
     `}
 
+  div[role='dialog'] {
+    z-index: 999;
+    position: relative;
+  }
 
-    @media screen and (max-width:1024px) {
+  @media screen and (max-width: 1024px) {
     div[role='dialog'] {
       z-index: 999;
       position: absolute;
