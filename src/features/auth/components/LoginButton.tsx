@@ -11,6 +11,7 @@ export const LoginButton = forwardRef<
   ButtonHTMLAttributes<HTMLButtonElement> & Props
 >(({ children, to, onClick, className, ...props }, ref) => {
   const { handleLoginClick, isLoading } = useOAuthLogin({ to }, { enabled: false })
+
   return (
     <button
       className={`disabled:text-red-400 disabled:cursor-not-allowed ${className}`}

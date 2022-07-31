@@ -3,7 +3,8 @@ import { QueryKey, useQuery, UseQueryOptions } from 'react-query'
 import { useCallback, useEffect } from 'react'
 import axios, { AxiosError } from 'axios'
 import { UseLoginResult, UseLoginError, LoginTo } from '../types/index'
-import { UserState } from '../recoil/atoms/user'
+import { UserState } from '../recoil/atoms/UserState'
+import { useDebouncedCallback } from '../../../hooks/useDebouncedCallback'
 
 type UseLoginType = {
   to: LoginTo
@@ -18,31 +19,29 @@ export const useOAuthLogin = (
   { to }: UseLoginType,
   options?:
     | Omit<
-        UseQueryOptions<
-          Promise<UseLoginResult>,
-          AxiosError<UseLoginError>,
-          Promise<UseLoginResult>,
-          QueryKey
-        >,
+        UseQueryOptions<UseLoginResult, AxiosError<UseLoginError>, UseLoginResult, QueryKey>,
         'queryKey' | 'queryFn'
       >
     | undefined
 ) => {
   const setUserData = useSetRecoilState(UserState)
-
-  const queryData = useQuery<Promise<UseLoginResult>, AxiosError<UseLoginError>>(
+  const queryData = useQuery<UseLoginResult, AxiosError<UseLoginError>>(
     ['login', to],
     () => loginRequest({ to }),
     options
   )
 
   useEffect(() => {
-    setUserData(queryData.data)
+    if (queryData.data) {
+      setUserData(queryData.data)
+    }
   }, [queryData.data])
 
   const handleLoginClick = useCallback(() => {
     queryData.refetch()
   }, [queryData.refetch])
 
-  return { ...queryData, handleLoginClick }
+  const debouncedHandleLoginClick = useDebouncedCallback(handleLoginClick, 2000, true)
+
+  return { ...queryData, handleLoginClick: debouncedHandleLoginClick }
 }
