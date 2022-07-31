@@ -1,6 +1,6 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
-import { LoginButtons } from './features/auth/components/LoginButtons'
+import { LoginButtons } from './features/auth/components'
 import Layout from './layouts/Layout'
 import Cake from './pages/Cake'
 import Home from './pages/Home'

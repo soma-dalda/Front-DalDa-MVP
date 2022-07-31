@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { QueryClient, QueryClientProvider } from 'react-query'
+import { ReactQueryDevtools } from 'react-query/devtools'
 import { RecoilRoot } from 'recoil'
 import { BrowserRouter } from 'react-router-dom'
 import { DUIThemeProvider } from '@jaewoong2/dui'
@@ -12,7 +13,7 @@ import { worker } from './mocks/browser'
 
 if (process.env.NODE_ENV === 'development') {
   // eslint-disable-next-line global-require
-  worker.start()
+  worker.start({ onUnhandledRequest: 'bypass' })
 }
 const queryClient = new QueryClient()
 
@@ -26,6 +27,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
             <App />
           </BrowserRouter>
         </RecoilRoot>
+        <ReactQueryDevtools position="top-left" />
       </QueryClientProvider>
     </DUIThemeProvider>
   </React.StrictMode>
