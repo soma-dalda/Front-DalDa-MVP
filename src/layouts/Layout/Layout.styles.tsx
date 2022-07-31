@@ -19,7 +19,7 @@ export const Column = styled(Main.Column)<{ isBottomSheet: boolean }>`
   ${({ theme }) =>
     theme.isMobile &&
     css`
-      margin-top: 42px;
+      margin-top: 40px;
     `}
 
   ${({ theme, isBottomSheet }) =>
