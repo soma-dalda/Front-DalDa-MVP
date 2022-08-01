@@ -2,21 +2,16 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import * as Styled from './Home.styles'
 import { Banner } from './Banner'
-import { Search } from '../../features/search/components/Search'
 import { Boxes, Boxes as MainOrderButtons } from './Boxes'
+import SearchContainer from '../../features/search/components/SearchContainer'
 
 function Home() {
   return (
     <Styled.MainContainer>
       <Banner />
       <Styled.MainWrapper>
-        <Search
-          title={
-            <h3>
-              <b>주문 제작케이크</b>를 주문하고 싶으면?
-            </h3>
-          }
-        />
+        <SearchContainer />
+
         <MainOrderButtons />
         <Boxes className="gap-5">
           <Link className="w-full pt-2" to="/search">
