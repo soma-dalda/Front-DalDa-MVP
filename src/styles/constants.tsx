@@ -1,5 +1,6 @@
 export const color = {
   // Background Color
+  background: '#3fa3d5',
   searchInputBG: '#FBF7F2',
   resultInfoBG: '#FBF7F2',
   buttonPrimaryBG: '#FFA180',

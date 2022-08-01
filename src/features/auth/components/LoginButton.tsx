@@ -1,3 +1,4 @@
+import { useToast } from '@jaewoong2/toast'
 import React, { ButtonHTMLAttributes, forwardRef } from 'react'
 import { useOAuthLogin } from '../hooks/useOAuthLogin'
 import { LoginTo } from '../types'
@@ -10,7 +11,24 @@ export const LoginButton = forwardRef<
   HTMLButtonElement,
   ButtonHTMLAttributes<HTMLButtonElement> & Props
 >(({ children, to, onClick, className, ...props }, ref) => {
-  const { handleLoginClick, isLoading } = useOAuthLogin({ to }, { enabled: false })
+  const { show } = useToast('로그인 실패!', {
+    position: 'top',
+    subPosition: 'right',
+    type: 'error',
+    color: 'white',
+  })
+
+  const { handleLoginClick, isLoading } = useOAuthLogin(
+    { to },
+    {
+      enabled: false,
+      useErrorBoundary: false,
+      suspense: true,
+      onError: () => {
+        show().error()
+      },
+    }
+  )
 
   return (
     <button

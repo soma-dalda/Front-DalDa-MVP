@@ -7,6 +7,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { DUIThemeProvider } from '@jaewoong2/dui'
 
 import './index.css'
+import { ToastProvider } from '@jaewoong2/toast'
 import App from './App'
 import GlobalStyle from './styles/Theme/GlobalStyle'
 import { worker } from './mocks/browser'
@@ -24,7 +25,9 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
         <RecoilRoot>
           <BrowserRouter>
             <GlobalStyle />
-            <App />
+            <ToastProvider>
+              <App />
+            </ToastProvider>
           </BrowserRouter>
         </RecoilRoot>
         <ReactQueryDevtools position="top-left" />
