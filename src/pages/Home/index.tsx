@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import * as Styled from './Home.styles'
 import { Banner } from './Banner'
-import { Search } from './Search'
+import { Search } from '../../features/search/components/Search'
 import { Boxes, Boxes as MainOrderButtons } from './Boxes'
 
 function Home() {
