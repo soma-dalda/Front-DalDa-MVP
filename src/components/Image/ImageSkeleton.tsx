@@ -1,6 +1,20 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 export function ImageSkeleton({ isLoading, height }: { isLoading: boolean; height: string }) {
+  const [isMounted, setIsMounted] = useState(false)
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsMounted(true)
+    }, 200)
+
+    return () => clearTimeout(timer)
+  }, [])
+
+  if (!isMounted) {
+    return null
+  }
+
   return (
     <div className={`w-full h-full ${isLoading ? 'block' : 'hidden'}`}>
       <div
