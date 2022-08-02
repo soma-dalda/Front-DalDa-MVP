@@ -3,6 +3,7 @@ import { useCallback, useState } from 'react'
 import { useQuery } from 'react-query'
 import { SearchDataResponse } from '../types/index'
 import { useDebouncedCallback } from '../../../hooks/useDebouncedCallback'
+import { useInternalRouter } from '../../../hooks/useInternalRouter'
 
 const searchRequest = async (keyword: string) => {
   const { data } = await axios.get<SearchDataResponse>(`/search?keyword=${keyword}`)
@@ -11,6 +12,7 @@ const searchRequest = async (keyword: string) => {
 }
 
 export const useSearch = (initialValue: string) => {
+  const { push } = useInternalRouter()
   const [value, setValue] = useState(initialValue)
   const [queryKey, setQueryKey] = useState<string>()
   const queryData = useQuery<SearchDataResponse, AxiosError>(
@@ -21,6 +23,9 @@ export const useSearch = (initialValue: string) => {
       useErrorBoundary: false,
       suspense: true,
       refetchOnMount: false,
+      onSuccess: (data) => {
+        push(`/search/${data}`)
+      },
     }
   )
   const onChangeValue = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -29,7 +34,6 @@ export const useSearch = (initialValue: string) => {
 
   const onSubmit = useCallback(
     (e?: React.FormEvent) => {
-      console.log(e)
       e?.preventDefault()
       setQueryKey(value)
       queryData.refetch()

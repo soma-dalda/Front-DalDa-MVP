@@ -4,6 +4,7 @@ import AuthButtonsContainer from './features/auth/components/AuthButtonsContaine
 import Layout from './layouts/Layout'
 import Cake from './pages/Cake'
 import Home from './pages/Home'
+import Search from './pages/Serach'
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
       <Routes>
         <Route element={<Home />} path="/" />
         <Route element={<Cake />} path="/cake" />
-        <Route element={<Home />} path="/search" />
+        <Route element={<Search />} path="/search/:keyword" />
       </Routes>
     </Layout>
   )
