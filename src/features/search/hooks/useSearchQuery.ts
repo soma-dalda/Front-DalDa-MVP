@@ -5,7 +5,7 @@ import { SearchDataResponse } from '../types/index'
 import { useDebouncedCallback } from '../../../hooks/useDebouncedCallback'
 
 const searchRequest = async (keyword: string) => {
-  const { data } = await axios.get<SearchDataResponse>(`/search?keyword=${keyword}`)
+  const { data } = await axios.get<SearchDataResponse>(`/search/${keyword}`)
 
   return data
 }
@@ -27,19 +27,15 @@ export const useSearch = (
     }
   )
 
-  const onSubmit = useCallback(
-    (e?: React.FormEvent) => {
-      e?.preventDefault()
-      setQueryKey(searchQueryKey)
-      queryData.refetch()
-    },
-    [searchQueryKey]
-  )
+  const refetch = useCallback(() => {
+    setQueryKey(searchQueryKey)
+    queryData.refetch()
+  }, [searchQueryKey])
 
-  const debouncedOnSubmit = useDebouncedCallback(onSubmit, 1000, true)
+  const debouncedRefetch = useDebouncedCallback(refetch, 1000, true)
 
   return {
-    onSubmit: debouncedOnSubmit,
-    queryData,
+    ...queryData,
+    refetch: debouncedRefetch,
   } as const
 }
