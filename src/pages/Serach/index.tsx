@@ -1,13 +1,14 @@
-import React, { useCallback } from 'react'
+import React, { useCallback, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { AiOutlineLeft } from 'react-icons/ai'
 import Card from './Card'
 import { useSearchForm } from '../../features/search/hooks/useSearchForm'
-import Input from '../Home/Form/Input'
 import { useInternalRouter } from '../../hooks/useInternalRouter'
+import { useSearch } from '../../features/search/hooks/useSearchQuery'
+import SearchForm from './SearchForm'
 
 function Search() {
   const { keyword } = useParams()
+  const { refetch, data } = useSearch(keyword ?? '', {})
   const [value, , onChangeValue] = useSearchForm(keyword ?? '')
   const { push, goBack } = useInternalRouter()
 
@@ -19,41 +20,28 @@ function Search() {
     [value]
   )
 
+  // React-router-dom 은 같은 컴포넌트 내에서 URL 을 변경 시킬 때,
+  // 키값이 같으면 Re-render를 시키지 않는다.
+  // 따라서, 키 값을 변경 시키거나 (v6 되면서 방법 찾지못함)
+  // React-Router-Dom 을 통해 변경 되는 부분을 찾아 useEffect 의존배열에 찾아 넣어준다
+  useEffect(() => {
+    refetch()
+  }, [keyword])
+
   return (
     <div className="ml-[15px] mt-3 w-[calc(100%-15px)]">
-      <div className="w-[calc(100%-15px)] flex items-center">
-        <button
-          type="button"
-          onClick={goBack}
-          aria-label="뒤로가기 버튼"
-          className="p-3 text-sm font-medium mr-2 bg-[#FBF7F2] rounded-lg"
-        >
-          <AiOutlineLeft className="text-2xl cursor-pointer text-gray-500 w-[20px] h-[20px]" />
-          <span className="sr-only">Search</span>
-        </button>
-        <form className="w-full" onSubmit={onSubmit}>
-          <Input
-            className="pl-4"
-            type="text"
-            value={value}
-            onChange={onChangeValue}
-            placeholder="우리 동네 케이크를 검색하세요"
-          />
-        </form>
-      </div>
+      <SearchForm
+        value={value}
+        onChangeValue={onChangeValue}
+        onSubmit={onSubmit}
+        buttonClick={goBack}
+      />
       <div className="grid grid-cols-2 w-[calc(100%-15px)]  gap-[5px] mt-4">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        {Array(10)
+          .fill(data)
+          .map((v, i) => (
+            <Card key={`card-${0 + i}`} href="/" button="바로가기" {...v} />
+          ))}
       </div>
     </div>
   )
