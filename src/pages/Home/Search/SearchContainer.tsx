@@ -1,9 +1,9 @@
 import React, { Suspense } from 'react'
+import Form from '../Form'
+import Input from '../Form/Input'
 import Spinner from '../../../components/Spinner'
-import Form from './Form'
-import Input from './Form/Input'
-import { Search } from './Search'
-import { SearchTitle } from './Search/Search.styles'
+import { SearchTitle } from '../SearchInput/Search.styles'
+import { SearchInput } from '../SearchInput'
 
 function SearchContainer() {
   return (
@@ -20,7 +20,8 @@ function SearchContainer() {
         </div>
       }
     >
-      <Search
+      <SearchInput
+        placeholder="우리 동네 케이크를 검색하세요"
         title={
           <h3>
             <b>주문 제작케이크</b>를 주문하고 싶으면?

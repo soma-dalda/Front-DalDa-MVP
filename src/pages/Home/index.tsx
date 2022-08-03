@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import * as Styled from './Home.styles'
 import { Banner } from './Banner'
 import { Boxes, Boxes as MainOrderButtons } from './Boxes'
-import SearchContainer from '../../features/search/components/SearchContainer'
+import SearchContainer from './SearchInput/SearchContainer'
 
 function Home() {
   return (
@@ -11,7 +11,6 @@ function Home() {
       <Banner />
       <Styled.MainWrapper>
         <SearchContainer />
-
         <MainOrderButtons />
         <Boxes className="gap-5">
           <Link className="w-full pt-2" to="/search">

@@ -22,7 +22,7 @@ function Layout({
       <Styled.Column isBottomSheet={visible}>
         <Header onClickMenu={() => setVisible((prev: boolean) => !prev)} />
         <Styled.Section className="shadow-2xl">
-          <div className="min-h-screen flex flex-col justify-between">
+          <div className="min-h-screen overflow-y-scroll flex flex-col justify-between">
             {children}
             <FooterDalda />
           </div>
