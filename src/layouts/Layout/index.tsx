@@ -1,4 +1,4 @@
-import { BottomSheet, FooterDalda, Main } from '@jaewoong2/dui'
+import { BottomSheet, FooterDalda } from '@jaewoong2/dui'
 import React, { PropsWithChildren } from 'react'
 import { useRecoilState } from 'recoil'
 import { BottomSheetState } from '../../recoil/atoms/BottomsheetState'
@@ -18,7 +18,7 @@ function Layout({
   const [visible, setVisible] = useRecoilState(BottomSheetState)
 
   return (
-    <Main>
+    <div className="w-full flex justify-center">
       <Styled.Column isBottomSheet={visible}>
         <Header onClickMenu={() => setVisible((prev: boolean) => !prev)} />
         <Styled.Section className="shadow-2xl">
@@ -39,7 +39,7 @@ function Layout({
           </div>
         </div>
       </Styled.Column>
-    </Main>
+    </div>
   )
 }
 

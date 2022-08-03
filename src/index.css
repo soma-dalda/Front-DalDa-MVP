@@ -6,7 +6,6 @@
 body,
 html,
 #root {
-  background-color: #efeab8c8;
   font-size: 16px;
 }
 
@@ -25,6 +24,22 @@ html,
   }
 
   .bottomsheet-wrapper {
-    @apply max-w-5xl relative w-full h-full flex justify-center;
+    @apply relative w-full h-full flex justify-center;
+  }
+
+  .login-btn {
+    @apply border-none bg-white w-full justify-center;
+  }
+
+  .kakao {
+    @apply text-yellow-500;
+  }
+
+  .naver {
+    @apply text-green-600;
+  }
+
+  .google {
+    @apply text-gray-600;
   }
 }

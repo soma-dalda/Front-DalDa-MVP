@@ -13,9 +13,11 @@ function GlobalStyle() {
       !isMobile
         ? css`
             height: 100%;
+            background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
           `
         : css`
             min-height: 100%;
+            background: none;
           `,
     [isMobile]
   )
@@ -25,9 +27,12 @@ function GlobalStyle() {
       visible
         ? css`
             overflow-y: hidden;
+            touch-action: none;
           `
         : css`
             overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            touch-action: auto;
           `,
     [visible]
   )
@@ -38,9 +43,8 @@ function GlobalStyle() {
         body,
         html,
         #root {
-          background-color: #efeab8c8;
-          ${mobileStyle}
-          ${bottomSheetStyle}
+          ${mobileStyle};
+          ${bottomSheetStyle};
         }
       `}
     />
