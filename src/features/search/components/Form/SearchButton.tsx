@@ -1,7 +1,7 @@
 import React from 'react'
 import SearchBigIcon from './SearchBigIcon'
 
-function Button({ className, ...props }: React.ButtonHTMLAttributes<HTMLButtonElement>) {
+function SearchButton({ className, ...props }: React.ButtonHTMLAttributes<HTMLButtonElement>) {
   return (
     <button
       type="submit"
@@ -14,4 +14,4 @@ function Button({ className, ...props }: React.ButtonHTMLAttributes<HTMLButtonEl
   )
 }
 
-export default Button
+export default SearchButton

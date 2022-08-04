@@ -1,24 +1,14 @@
-import React, { useCallback, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import React, { useEffect } from 'react'
 import Card from './Card'
 import { useSearchForm } from '../../features/search/hooks/useSearchForm'
-import { useInternalRouter } from '../../hooks/useInternalRouter'
 import { useSearch } from '../../features/search/hooks/useSearchQuery'
 import SearchForm from './SearchForm'
+import { useQueryString } from '../../hooks/useQueryString'
 
 function Search() {
-  const { keyword } = useParams()
-  const { refetch, data } = useSearch(keyword ?? '', {})
-  const [value, , onChangeValue] = useSearchForm(keyword ?? '')
-  const { push, goBack } = useInternalRouter()
-
-  const onSubmit = useCallback(
-    (e: React.FormEvent) => {
-      e.preventDefault()
-      push(`/search/${value}`)
-    },
-    [value]
-  )
+  const keyword = useQueryString('keyword')
+  const { refetch, data } = useSearch(keyword, {})
+  const [value, , onChangeValue] = useSearchForm(keyword)
 
   // React-router-dom 은 같은 컴포넌트 내에서 URL 을 변경 시킬 때,
   // 키값이 같으면 Re-render를 시키지 않는다.
@@ -30,12 +20,7 @@ function Search() {
 
   return (
     <div className="ml-[15px] mt-3 w-[calc(100%-15px)]">
-      <SearchForm
-        value={value}
-        onChangeValue={onChangeValue}
-        onSubmit={onSubmit}
-        buttonClick={goBack}
-      />
+      <SearchForm value={value} onChangeValue={onChangeValue} />
       <div className="grid grid-cols-2 w-[calc(100%-15px)]  gap-[5px] mt-4">
         {Array(10)
           .fill(data)
