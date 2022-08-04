@@ -57,10 +57,11 @@ export const search = async (
   res: ResponseComposition<DefaultBodyType>,
   ctx: RestContext
 ) => {
+  const params = new URLSearchParams(req.url.search)
   return res(
     ctx.delay(2000),
     ctx.json({
-      keyword: req.params.keyword,
+      keyword: decodeURIComponent(params.get('keyword') ?? ''),
       src: 'https://flowbite.com/docs/images/products/apple-watch.png',
       description: 'Apple Watch Series 7 GPS, Aluminium Case, Starlight Sport',
     })

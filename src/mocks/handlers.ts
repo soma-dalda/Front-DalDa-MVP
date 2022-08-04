@@ -5,5 +5,5 @@ export const handlers = [
   rest.get('/login/naver', loginNaver),
   rest.get('/login/kakao', loginKakao),
   rest.get('/login/google', loginGoogle),
-  rest.get('/search/:keyword', search),
+  rest.get('/search', search),
 ]
