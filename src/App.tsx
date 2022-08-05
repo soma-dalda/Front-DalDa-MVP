@@ -13,7 +13,6 @@ function App() {
         <Route element={<Home />} path="/" />
         <Route element={<Cake />} path="/cake" />
         <Route element={<ConnectedSearch />} path="/search" />
-        <Route element={<ConnectedSearch />} path="/search/:keyword" />
       </Routes>
     </Layout>
   )
