@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-export function ImageSkeleton({ isLoading, height }: { isLoading: boolean; height: string }) {
+function ImageSkeleton({ isLoading, height }: { isLoading: boolean; height: string }) {
   const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
@@ -35,3 +35,5 @@ export function ImageSkeleton({ isLoading, height }: { isLoading: boolean; heigh
     </div>
   )
 }
+
+export default ImageSkeleton

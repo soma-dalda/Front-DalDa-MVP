@@ -1,6 +1,6 @@
 import React, { ButtonHTMLAttributes } from 'react'
 import { AiOutlineLeft } from 'react-icons/ai'
-import Spinner from '../../../../components/Spinner'
+import { Spinner } from '../../../../components'
 
 function BackButton({ className, disabled, ...props }: ButtonHTMLAttributes<HTMLButtonElement>) {
   return (

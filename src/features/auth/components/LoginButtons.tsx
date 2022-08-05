@@ -1,6 +1,6 @@
 import React from 'react'
 import { LoginTo } from '../types'
-import { LoginButton } from './LoginButton'
+import { LoginButton } from './index'
 
 const LOGIN_CONSTANT: {
   title: string
@@ -24,7 +24,7 @@ const LOGIN_CONSTANT: {
   },
 ]
 
-export function LoginButtons() {
+function LoginButtons() {
   return (
     <div className="h-full flex flex-col justify-center">
       {LOGIN_CONSTANT.map(({ title, to, className }) => (
@@ -37,3 +37,5 @@ export function LoginButtons() {
     </div>
   )
 }
+
+export default LoginButtons

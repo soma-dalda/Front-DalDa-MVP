@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react'
 
-export function withSuspense(
+function withSuspense(
   WrappedComponent: React.ComponentType,
   fallback: React.SuspenseProps['fallback'] = null
 ) {
@@ -14,3 +14,5 @@ export function withSuspense(
 
   return ComponentWithSuspense
 }
+
+export default withSuspense

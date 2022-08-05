@@ -1,10 +1,19 @@
-import { DefaultBodyType, PathParams, ResponseComposition, RestContext, RestRequest } from 'msw'
+import {
+  DefaultBodyType,
+  MockedResponse,
+  PathParams,
+  ResponseComposition,
+  RestContext,
+  RestRequest,
+} from 'msw'
 
-export const loginNaver = async (
-  _: RestRequest<never, PathParams<string>>,
+type API = (
+  req: RestRequest<never, PathParams<string>>,
   res: ResponseComposition<DefaultBodyType>,
   ctx: RestContext
-) => {
+) => Promise<MockedResponse<DefaultBodyType>>
+
+export const loginNaver: API = async (_, res, ctx) => {
   return res(
     ctx.status(400),
     ctx.json({
@@ -15,11 +24,7 @@ export const loginNaver = async (
   )
 }
 
-export const loginKakao = async (
-  _: RestRequest<never, PathParams<string>>,
-  res: ResponseComposition<DefaultBodyType>,
-  ctx: RestContext
-) => {
+export const loginKakao: API = async (_, res, ctx) => {
   return res(
     ctx.delay(4000),
     ctx.json({
@@ -34,11 +39,7 @@ export const loginKakao = async (
   )
 }
 
-export const loginGoogle = async (
-  _: RestRequest<never, PathParams<string>>,
-  res: ResponseComposition<DefaultBodyType>,
-  ctx: RestContext
-) => {
+export const loginGoogle: API = async (_, res, ctx) => {
   return res(
     ctx.json({
       user: {
@@ -52,11 +53,7 @@ export const loginGoogle = async (
   )
 }
 
-export const search = async (
-  req: RestRequest<never, PathParams<string>>,
-  res: ResponseComposition<DefaultBodyType>,
-  ctx: RestContext
-) => {
+export const search: API = async (req, res, ctx) => {
   const params = new URLSearchParams(req.url.search)
   return res(
     ctx.delay(2000),

@@ -1,6 +1,6 @@
 import React, { PropsWithChildren } from 'react'
 import styled from '@emotion/styled'
-import Image from '../Image'
+import { Image } from '../index'
 
 const CarouselContainer = styled.div`
   display: flex;
@@ -32,7 +32,7 @@ type CarouselProps = {
   alt: string
 }
 
-export function Carousel({
+function Carousel({
   src,
   alt,
   ...props
@@ -45,3 +45,5 @@ export function Carousel({
     </CarouselContainer>
   )
 }
+
+export default Carousel

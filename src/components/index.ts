@@ -1,0 +1,7 @@
+export { default as Banner } from './Card'
+export { default as Boxes } from './Header'
+export { default as Image } from './Image'
+export { default as Slick } from './Slick'
+export { default as Carousel } from './Slick/Carousel'
+export { default as Spinner } from './Spinner'
+export { default as withSuspense } from './withSuspense'
