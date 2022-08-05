@@ -1,7 +1,5 @@
 import React from 'react'
-import Form from '../../../../features/search/components/SearchForm'
-import BackButton from '../../../../features/search/components/SearchForm/BackButton'
-import Input from '../../../../features/search/components/SearchForm/SearchInput'
+import { SearchForm as Form, BackButton, SearchInput } from '@/features/search/components'
 
 type Props = {
   onChangeValue?: (e: React.ChangeEvent<HTMLInputElement>) => void
@@ -24,7 +22,7 @@ function SearchForm({ value, onChangeValue, onButtonClick, disabled, onSubmit }:
           />
         }
         input={
-          <Input
+          <SearchInput
             className={`pl-10 ${disabled ? 'bg-gray-200 animate-pulse' : ''}`}
             type="text"
             value={value}
