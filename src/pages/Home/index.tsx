@@ -1,17 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import * as Styled from './Home.styles'
-import { Banner } from './Banner'
-import { Boxes, Boxes as MainOrderButtons } from './Boxes'
-import { SearchInput } from './SearchInput'
-import Title from './SearchInput/Title'
+import Title from './components/SearchForm/Title'
+import { Banner, Boxes, SearchForm } from './components'
 
 function Home() {
   return (
     <Styled.MainContainer>
       <Banner />
       <Styled.MainWrapper>
-        <SearchInput
+        <SearchForm
           placeholder="우리 동네 케이크를 검색하세요"
           title={
             <Title>
@@ -19,7 +17,7 @@ function Home() {
             </Title>
           }
         />
-        <MainOrderButtons />
+        <Boxes />
         <Boxes className="gap-5">
           <Link className="w-full pt-2" to="/search">
             <Boxes.SqureButton className="cake pt-2" h4="주문제작" caption="케이크 구경하기" />
