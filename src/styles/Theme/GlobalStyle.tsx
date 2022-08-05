@@ -13,10 +13,12 @@ function GlobalStyle() {
       !isMobile
         ? css`
             height: 100%;
+            overflow: hidden;
             background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
           `
         : css`
             min-height: 100%;
+            overflow: auto;
             background: none;
           `,
     [isMobile]
@@ -26,14 +28,9 @@ function GlobalStyle() {
     () =>
       visible
         ? css`
-            overflow-y: hidden;
-            touch-action: none;
+            overflow: hidden;
           `
-        : css`
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
-            touch-action: auto;
-          `,
+        : css``,
     [visible]
   )
 

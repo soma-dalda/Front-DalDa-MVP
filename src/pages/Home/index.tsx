@@ -2,19 +2,21 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import * as Styled from './Home.styles'
 import { Banner } from './Banner'
-import { Search } from './Search'
 import { Boxes, Boxes as MainOrderButtons } from './Boxes'
+import { SearchInput } from './SearchInput'
+import Title from './SearchInput/Title'
 
 function Home() {
   return (
     <Styled.MainContainer>
       <Banner />
       <Styled.MainWrapper>
-        <Search
+        <SearchInput
+          placeholder="우리 동네 케이크를 검색하세요"
           title={
-            <h3>
+            <Title>
               <b>주문 제작케이크</b>를 주문하고 싶으면?
-            </h3>
+            </Title>
           }
         />
         <MainOrderButtons />

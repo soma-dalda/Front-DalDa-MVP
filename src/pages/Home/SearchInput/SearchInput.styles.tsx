@@ -18,7 +18,6 @@ export const SearchContaeinr = styled.div`
   }
 `
 export const SearchTitle = styled.div`
-  margin-left: 10px;
   font-size: 1.25em;
   font-weight: 600;
   margin-top: 20px;

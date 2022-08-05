@@ -7,7 +7,7 @@ export const UserSelector = selector({
     const userState = get(UserState)
 
     return {
-      isLoggedIn: !!userState.user.profile.nickname,
+      isLoggedIn: !!userState?.user?.profile?.nickname,
       userState,
     }
   },

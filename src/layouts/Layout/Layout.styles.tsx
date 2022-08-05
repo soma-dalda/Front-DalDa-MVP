@@ -3,9 +3,11 @@ import styled from '@emotion/styled'
 import { Main } from '@jaewoong2/dui'
 
 export const Column = styled(Main.Column)<{ isBottomSheet: boolean }>`
-  height: 100%;
+  margin-top: 40px;
+  height: 100vh;
   position: relative;
   overflow-x: hidden;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   background-color: #fff;
@@ -14,8 +16,6 @@ export const Column = styled(Main.Column)<{ isBottomSheet: boolean }>`
     position: relative;
     margin-top: 20px;
   }
-
-  margin-top: 40px;
 
   ${({ theme, isBottomSheet }) =>
     (theme.isMobile || isBottomSheet) &&

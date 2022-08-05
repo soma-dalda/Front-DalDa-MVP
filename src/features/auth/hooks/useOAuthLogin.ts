@@ -32,6 +32,10 @@ export const useOAuthLogin = (
   )
 
   useEffect(() => {
+    queryData.remove()
+  }, [])
+
+  useEffect(() => {
     if (queryData.data) {
       setUserData(queryData.data)
     }
