@@ -1,7 +1,7 @@
 import React from 'react'
 import { AiOutlineHeart } from 'react-icons/ai'
-import Card from '../../../components/Card'
-import Image from '../../../components/Image'
+import Card from '../../../../components/Card'
+import Image from '../../../../components/Image'
 
 function CakeCards() {
   return (
