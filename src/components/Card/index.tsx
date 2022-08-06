@@ -14,8 +14,8 @@ function Card({ image, caption, href, className }: CardProps) {
       <Styled.CardWrapper
         className={`aspect-w-1 aspect-h-1 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8 ${className}`}
       >
-        {image}
         <Styled.Caption>{caption}</Styled.Caption>
+        {image}
       </Styled.CardWrapper>
     </a>
   )

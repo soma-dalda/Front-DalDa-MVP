@@ -1,6 +1,6 @@
 import React from 'react'
 import { LoginTo } from '../types'
-import { LoginButton } from './index'
+import LoginButton from './LoginButton'
 
 const LOGIN_CONSTANT: {
   title: string

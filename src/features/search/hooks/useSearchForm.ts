@@ -5,9 +5,9 @@ export const useSearchForm = (initialValue: string) => {
   const [value, setValue] = useState(initialValue)
   const { push } = useInternalRouter()
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value)
-  }
+  }, [])
 
   const handleSubmit = useCallback(
     (e: React.FormEvent<Element>) => {

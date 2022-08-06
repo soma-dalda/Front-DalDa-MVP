@@ -1,6 +1,6 @@
 import React, { PropsWithChildren } from 'react'
 import styled from '@emotion/styled'
-import { Image } from '../index'
+import Image from '../Image'
 
 const CarouselContainer = styled.div`
   display: flex;

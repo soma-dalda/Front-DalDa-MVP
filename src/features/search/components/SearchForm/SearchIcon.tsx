@@ -19,4 +19,4 @@ function SearchIcon({ ...props }: React.SVGProps<SVGSVGElement>) {
   )
 }
 
-export default SearchIcon
+export default React.memo(SearchIcon)

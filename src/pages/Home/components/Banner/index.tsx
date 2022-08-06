@@ -1,7 +1,6 @@
+import { BANNER_IMAGES } from '@/assets'
+import { Carousel, Slick } from '@/components'
 import React from 'react'
-import { BANNER_IMAGES } from '../../../../assets'
-import Slick from '../../../../components/Slick'
-import { Carousel } from '../../../../components/Slick/Carousel'
 
 function Banner() {
   return (

@@ -28,4 +28,4 @@ function SearchForm({
   )
 }
 
-export default SearchForm
+export default React.memo(SearchForm)

@@ -20,4 +20,4 @@ function BackButton({ className, disabled, ...props }: ButtonHTMLAttributes<HTML
   )
 }
 
-export default BackButton
+export default React.memo(BackButton)

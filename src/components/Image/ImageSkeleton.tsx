@@ -6,7 +6,7 @@ function ImageSkeleton({ isLoading, height }: { isLoading: boolean; height: stri
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsMounted(true)
-    }, 200)
+    }, 500)
 
     return () => clearTimeout(timer)
   }, [])

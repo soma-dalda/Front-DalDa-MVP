@@ -13,4 +13,4 @@ function SerachInput({ className, ...props }: React.InputHTMLAttributes<HTMLInpu
   )
 }
 
-export default SerachInput
+export default React.memo(SerachInput)

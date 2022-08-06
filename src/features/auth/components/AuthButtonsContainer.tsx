@@ -1,10 +1,11 @@
 import React, { Suspense } from 'react'
 
 import { useRecoilValue } from 'recoil'
+import { Spinner } from '@/components'
 import { UserSelector } from '../recoil/selectors/UserSelector'
 
-import { LoginButtons, LoggedinButtons } from './index'
-import { Spinner } from '../../../components'
+import { LoggedinButtons } from './index'
+import LoginButtons from './LoginButtons'
 
 function AuthButtonsContainer() {
   const { isLoggedIn } = useRecoilValue(UserSelector)

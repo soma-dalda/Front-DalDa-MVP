@@ -1,19 +1,19 @@
 import React from 'react'
 import { SearchForm as Form, BackButton, SearchInput } from '@/features/search/components'
+import { useSearchForm } from '@/features/search/hooks/useSearchForm'
 
 type Props = {
-  onChangeValue?: (e: React.ChangeEvent<HTMLInputElement>) => void
-  onSubmit?: (e: React.FormEvent) => void
   onButtonClick?: (e: React.MouseEvent) => void
-  value?: string
   disabled?: boolean
 }
 
-function SearchForm({ value, onChangeValue, onButtonClick, disabled, onSubmit }: Props) {
+function SearchForm({ onButtonClick, disabled }: Props) {
+  const { value, handleSubmit, handleChange } = useSearchForm('')
+
   return (
     <div className="w-[calc(100%-15px)] flex items-center">
       <Form
-        onSubmit={onSubmit}
+        onSubmit={handleSubmit}
         leftButton={
           <BackButton
             onClick={onButtonClick}
@@ -26,7 +26,7 @@ function SearchForm({ value, onChangeValue, onButtonClick, disabled, onSubmit }:
             className={`pl-10 ${disabled ? 'bg-gray-200 animate-pulse' : ''}`}
             type="text"
             value={value}
-            onChange={onChangeValue}
+            onChange={handleChange}
             placeholder={disabled ? '로딩중...' : '우리 동네 케이크를 검색하세요'}
           />
         }
@@ -35,4 +35,4 @@ function SearchForm({ value, onChangeValue, onButtonClick, disabled, onSubmit }:
   )
 }
 
-export default SearchForm
+export default React.memo(SearchForm)
