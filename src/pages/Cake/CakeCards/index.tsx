@@ -7,7 +7,7 @@ function CakeCards() {
   return (
     <div>
       <Card
-        className="mt-4 shadow-md pb-5"
+        className="mt-4 shadow-md"
         image={
           <Image
             height="400px"
