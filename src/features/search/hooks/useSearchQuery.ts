@@ -5,7 +5,7 @@ import { SearchDataResponse } from '../types/index'
 import { useDebouncedCallback } from '../../../hooks/useDebouncedCallback'
 
 const searchRequest = async (keyword: string) => {
-  const { data } = await axios.get<SearchDataResponse>(`/search?keyword=${keyword}`)
+  const { data } = await axios.get<SearchDataResponse>(`/api/company?keyword=${keyword}`)
 
   return data
 }

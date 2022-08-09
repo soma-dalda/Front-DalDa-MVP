@@ -1,5 +1,6 @@
 import React, { Suspense } from 'react'
 import { Routes, Route } from 'react-router-dom'
+import { Spinner } from './components'
 import AuthButtonsContainer from './features/auth/components/AuthButtonsContainer'
 import Layout from './layouts/Layout'
 
@@ -10,9 +11,9 @@ const Serach = React.lazy(() => import('./pages/Serach'))
 function App() {
   return (
     <Layout BottomSheetDefaultHeight="200px" BottomSheetChildren={<AuthButtonsContainer />}>
-      <Suspense>
+      <Suspense fallback={<Spinner />}>
         <Routes>
-          <Route element={<Home />} path="/" />
+          <Route element={<Home />} path="/*" />
           <Route element={<Cake />} path="/cake" />
           <Route element={<Serach />} path="/search" />
         </Routes>

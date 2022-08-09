@@ -1,3 +1,4 @@
+import { FeedResponse } from '@/pages/Cake/types'
 import {
   DefaultBodyType,
   MockedResponse,
@@ -6,6 +7,7 @@ import {
   RestContext,
   RestRequest,
 } from 'msw'
+import { FEED_RESPONSE } from './constant'
 
 type API = (
   req: RestRequest<never, PathParams<string>>,
@@ -63,4 +65,24 @@ export const search: API = async (req, res, ctx) => {
       description: 'Apple Watch Series 7 GPS, Aluminium Case, Starlight Sport',
     })
   )
+}
+
+export const getFeeds: API = async (_, res, ctx) => {
+  return res(ctx.delay(2000), ctx.json<FeedResponse>(FEED_RESPONSE))
+}
+
+export const postFeed: API = async (req, res, ctx) => {
+  const { description } = await req.json()
+  const feed = {
+    key: Math.floor(Math.random() * 250 + 250),
+    user: { nickName: '닉네임', profileImg: 'https://i.pravatar.cc/210' },
+    like: Math.floor(Math.random() * 999),
+    description,
+    images: [`https://picsum.photos/450/${Math.floor(Math.random() * 250 + 250)}`],
+    comments: [],
+  }
+
+  FEED_RESPONSE.unshift(feed)
+
+  return res(ctx.status(200))
 }
