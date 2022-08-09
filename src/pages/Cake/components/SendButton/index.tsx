@@ -16,4 +16,4 @@ function SendButton({ className, ...props }: Props) {
   )
 }
 
-export default SendButton
+export default React.memo(SendButton)

@@ -7,7 +7,7 @@ export const Column = styled(Main.Column)<{ isBottomSheet: boolean }>`
   height: 100vh;
   position: relative;
   overflow-x: hidden;
-  overflow-y: auto;
+  overflow-y: hidden;
   display: flex;
   flex-direction: column;
   background-color: #fff;

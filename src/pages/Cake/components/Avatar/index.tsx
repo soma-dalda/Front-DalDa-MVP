@@ -22,4 +22,4 @@ function Avatar({ image, className, ...props }: Props & React.HtmlHTMLAttributes
   )
 }
 
-export default Avatar
+export default React.memo(Avatar)

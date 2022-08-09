@@ -16,4 +16,4 @@ function UploadImageButton({ className, ...props }: Props) {
   )
 }
 
-export default UploadImageButton
+export default React.memo(UploadImageButton)
