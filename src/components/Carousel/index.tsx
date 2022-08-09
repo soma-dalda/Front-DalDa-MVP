@@ -32,7 +32,7 @@ type CarouselProps = {
   alt: string
 }
 
-export function Carousel({
+function Carousel({
   src,
   alt,
   ...props
@@ -45,3 +45,5 @@ export function Carousel({
     </CarouselContainer>
   )
 }
+
+export default Carousel

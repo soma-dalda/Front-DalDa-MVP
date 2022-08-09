@@ -14,4 +14,4 @@ function SearchButton({ className, ...props }: React.ButtonHTMLAttributes<HTMLBu
   )
 }
 
-export default SearchButton
+export default React.memo(SearchButton)

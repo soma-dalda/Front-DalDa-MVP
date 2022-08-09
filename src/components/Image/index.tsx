@@ -1,6 +1,6 @@
 import React, { forwardRef, useCallback, useEffect, useRef, useState } from 'react'
 import { useIntersectionObserver } from '../../hooks/useIntersectionObserver'
-import { ImageSkeleton } from './ImageSkeleton'
+import ImageSkeleton from './ImageSkeleton'
 
 const Image = forwardRef<HTMLImageElement, React.ImgHTMLAttributes<HTMLImageElement>>(
   ({ onLoad, onError, className, ...props }, ref) => {

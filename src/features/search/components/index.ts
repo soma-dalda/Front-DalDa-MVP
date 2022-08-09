@@ -1,0 +1,6 @@
+export { default as SearchForm } from './SearchForm'
+export { default as BackButton } from './SearchForm/BackButton'
+export { default as SearchBigIcon } from './SearchForm/SearchBigIcon'
+export { default as SearchButton } from './SearchForm/SearchButton'
+export { default as SearchIcon } from './SearchForm/SearchIcon'
+export { default as SearchInput } from './SearchForm/SearchInput'

@@ -2,7 +2,7 @@ import React, { PropsWithChildren } from 'react'
 import * as Styled from './Boxes.styles'
 import { SqureButtonType } from './Boxes.type'
 
-export function Boxes({
+function Boxes({
   children,
   ...props
 }: PropsWithChildren<React.DetailsHTMLAttributes<HTMLDivElement>>) {
@@ -39,3 +39,5 @@ function RectButton({
 
 Boxes.RectButton = RectButton
 Boxes.SqureButton = SqureButton
+
+export default Boxes

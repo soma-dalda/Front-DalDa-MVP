@@ -1,9 +1,8 @@
+import { BANNER_IMAGES } from '@/assets'
+import { Carousel, Slick } from '@/components'
 import React from 'react'
-import { BANNER_IMAGES } from '../../../assets'
-import Slick from '../../../components/Slick'
-import { Carousel } from '../../../components/Slick/Carousel'
 
-export function Banner() {
+function Banner() {
   return (
     <Slick width="100%" height="120px" length={1}>
       {BANNER_IMAGES.map((src, i) => (
@@ -17,3 +16,5 @@ export function Banner() {
     </Slick>
   )
 }
+
+export default Banner

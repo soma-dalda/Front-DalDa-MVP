@@ -36,4 +36,4 @@ function Card({
   )
 }
 
-export default Card
+export default React.memo(Card)

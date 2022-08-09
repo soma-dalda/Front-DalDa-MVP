@@ -8,7 +8,7 @@ type Props = {
   rightButton?: React.ReactNode
 }
 
-function Form({
+function SearchForm({
   input,
   disabled,
   rightButton,
@@ -29,4 +29,4 @@ function Form({
   )
 }
 
-export default Form
+export default React.memo(SearchForm)

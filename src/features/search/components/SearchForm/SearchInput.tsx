@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Input({ className, ...props }: React.InputHTMLAttributes<HTMLInputElement>) {
+function SerachInput({ className, ...props }: React.InputHTMLAttributes<HTMLInputElement>) {
   return (
     <input
       type="text"
@@ -13,4 +13,4 @@ function Input({ className, ...props }: React.InputHTMLAttributes<HTMLInputEleme
   )
 }
 
-export default Input
+export default React.memo(SerachInput)

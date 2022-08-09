@@ -14,7 +14,7 @@ function Header({ logo = LOGO_URL, onClickMenu }: Props) {
     <Styled.Navigation>
       <Link to="/">
         <Styled.ImageContainer>
-          <img src={logo} alt="로고 이미지" />
+          <img src={logo} alt="로고" />
         </Styled.ImageContainer>
       </Link>
       <Styled.MenuButton type="button" aria-label="메뉴" onClick={onClickMenu}>
