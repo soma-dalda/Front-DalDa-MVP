@@ -45,4 +45,4 @@ function Slick({ children, speed = 700, slidesToShow = 1, length }: SliderProps)
   return <Slider {...settings}>{children}</Slider>
 }
 
-export default Slick
+export default React.memo(Slick)

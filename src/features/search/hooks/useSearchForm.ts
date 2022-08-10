@@ -12,7 +12,7 @@ export const useSearchForm = (initialValue: string) => {
   const handleSubmit = useCallback(
     (e: React.FormEvent<Element>) => {
       e.preventDefault()
-      push(`/search?keyword=${value}`)
+      push(`/search?query=${value}`)
     },
     [value]
   )

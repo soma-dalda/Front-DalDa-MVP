@@ -1,14 +1,14 @@
 import React, { Suspense } from 'react'
 
-import { useRecoilValue } from 'recoil'
 import { Spinner } from '@/components'
-import { UserSelector } from '../recoil/selectors/UserSelector'
 
+import { useRecoilValue } from 'recoil'
 import { LoggedinButtons } from './index'
 import LoginButtons from './LoginButtons'
+import { UserState } from '../recoil/atoms/UserState'
 
 function AuthButtonsContainer() {
-  const { isLoggedIn } = useRecoilValue(UserSelector)
+  const { token } = useRecoilValue(UserState)
 
   return (
     <Suspense
@@ -19,7 +19,7 @@ function AuthButtonsContainer() {
         </div>
       }
     >
-      {!isLoggedIn ? <LoginButtons /> : <LoggedinButtons />}
+      {!token ? <LoginButtons /> : <LoggedinButtons />}
     </Suspense>
   )
 }

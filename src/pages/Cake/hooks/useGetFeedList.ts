@@ -1,9 +1,10 @@
+import { API } from '@/constants'
 import axios, { AxiosError } from 'axios'
 import { QueryKey, useQuery, UseQueryOptions } from 'react-query'
 import { FeedResponse } from '../types/index'
 
 const feedReqeuset = async () => {
-  const { data } = await axios.get<FeedResponse>('/api/feed/list')
+  const { data } = await axios.get<FeedResponse>(API.PATH.FEED.GET_FEED_LIST)
 
   return data
 }

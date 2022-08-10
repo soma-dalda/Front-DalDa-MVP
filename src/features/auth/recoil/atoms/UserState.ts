@@ -9,6 +9,7 @@ export const defaultValue: UseLoginResult = {
     email: null,
     phone_number: null,
   },
+  token: '',
 }
 
 export const UserState = atom({

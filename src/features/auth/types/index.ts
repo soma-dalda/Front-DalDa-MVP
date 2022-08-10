@@ -8,6 +8,7 @@ export type UseLoginResult = {
     email: string | null
     phone_number: string | null
   }
+  token: string
 }
 
 export type UseLoginError = {

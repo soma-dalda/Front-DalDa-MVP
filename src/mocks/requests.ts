@@ -15,9 +15,24 @@ type API = (
   ctx: RestContext
 ) => Promise<MockedResponse<DefaultBodyType>>
 
+const loginBase = (type: 'error' | 'success' | 'delay', ctx: RestContext) => {
+  if (type === 'error') {
+    return [ctx.status(400)]
+  }
+  if (type === 'delay') {
+    return [ctx.delay(2000), ctx.cookie('access-token', 'd2f1285d-9f45-4c4c-bb5a-2f919d6de1ce')]
+  }
+
+  return [ctx.status(200), ctx.cookie('access-token', 'd2f1285d-9f45-4c4c-bb5a-2f919d6de1ce')]
+}
+
+export const logout: API = async (_, res, ctx) => {
+  return res(ctx.status(200), ctx.cookie('acceess-token', ''))
+}
+
 export const loginNaver: API = async (_, res, ctx) => {
   return res(
-    ctx.status(400),
+    ...loginBase('error', ctx),
     ctx.json({
       error: {
         body: 'invalid Login',
@@ -28,7 +43,7 @@ export const loginNaver: API = async (_, res, ctx) => {
 
 export const loginKakao: API = async (_, res, ctx) => {
   return res(
-    ctx.delay(4000),
+    ...loginBase('delay', ctx),
     ctx.json({
       user: {
         profile: {
@@ -43,6 +58,7 @@ export const loginKakao: API = async (_, res, ctx) => {
 
 export const loginGoogle: API = async (_, res, ctx) => {
   return res(
+    ...loginBase('success', ctx),
     ctx.json({
       user: {
         profile: {
@@ -60,7 +76,7 @@ export const search: API = async (req, res, ctx) => {
   return res(
     ctx.delay(2000),
     ctx.json({
-      keyword: decodeURIComponent(params.get('keyword') ?? ''),
+      keyword: decodeURIComponent(params.get('query') ?? ''),
       src: 'https://flowbite.com/docs/images/products/apple-watch.png',
       description: 'Apple Watch Series 7 GPS, Aluminium Case, Starlight Sport',
     })
@@ -85,4 +101,10 @@ export const postFeed: API = async (req, res, ctx) => {
   FEED_RESPONSE.unshift(feed)
 
   return res(ctx.status(200))
+}
+
+export const postComment: API = async (req, res, ctx) => {
+  const { id } = req.params
+
+  return res(ctx.status(200), ctx.json({ id, ...req.json() }))
 }

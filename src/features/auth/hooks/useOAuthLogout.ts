@@ -1,15 +1,25 @@
 import { useSetRecoilState } from 'recoil'
-import { useQueryClient } from 'react-query'
+import { useMutation, UseMutationOptions, useQueryClient } from 'react-query'
+import axios from 'axios'
+import { API } from '@/constants'
 import { defaultValue, UserState } from '../recoil/atoms/UserState'
 
-export const useOAuthLogout = () => {
+const logout = async () => {
+  const { data } = await axios.delete(API.PATH.LOGOUT)
+
+  return data
+}
+
+export const useOAuthLogout = (options?: UseMutationOptions) => {
   const setUserData = useSetRecoilState(UserState)
   const queryClient = useQueryClient()
+  const { mutate } = useMutation(logout, { ...options })
 
   return {
-    logout: () => {
+    handleLogout: () => {
       queryClient.removeQueries('login')
       setUserData({ ...defaultValue })
+      mutate()
     },
   }
 }

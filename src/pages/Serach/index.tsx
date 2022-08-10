@@ -9,13 +9,13 @@ import { SearchForm, Card } from './components'
 import SkeletonCards from './components/Skeleton/SkeletonCards'
 
 function Search() {
-  const keyword = useQueryString('keyword')
-  const { refetch, data } = useSearch(keyword, {})
+  const query = useQueryString('query')
+  const { refetch, data } = useSearch(query, {})
   const { goBack } = useInternalRouter()
 
   useEffect(() => {
     refetch()
-  }, [keyword])
+  }, [query])
 
   return (
     <div className="ml-[15px] mt-3 w-[calc(100%-15px)]">

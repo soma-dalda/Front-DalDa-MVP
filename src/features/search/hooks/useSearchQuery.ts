@@ -1,11 +1,12 @@
 import axios, { AxiosError } from 'axios'
 import { useCallback, useState } from 'react'
 import { useQuery, UseQueryOptions } from 'react-query'
+import { API } from '../../../constants/index'
 import { SearchDataResponse } from '../types/index'
 import { useDebouncedCallback } from '../../../hooks/useDebouncedCallback'
 
-const searchRequest = async (keyword: string) => {
-  const { data } = await axios.get<SearchDataResponse>(`/api/company?keyword=${keyword}`)
+const searchRequest = async (query: string) => {
+  const { data } = await axios.get<SearchDataResponse>(`${API.PATH.COMPANY.GET}?query=${query}`)
 
   return data
 }

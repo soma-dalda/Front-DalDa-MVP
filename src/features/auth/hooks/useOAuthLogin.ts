@@ -1,3 +1,4 @@
+import { API } from '@/constants'
 import { useSetRecoilState } from 'recoil'
 import { QueryKey, useQuery, UseQueryOptions } from 'react-query'
 import { useCallback, useEffect } from 'react'
@@ -11,7 +12,7 @@ type UseLoginType = {
 }
 
 const loginRequest = async ({ to }: UseLoginType): Promise<UseLoginResult> => {
-  const { data } = await axios.get<UseLoginResult>(`/login/${to}`)
+  const { data } = await axios.get<UseLoginResult>(`${API.PATH.LOGIN.BASE}/${to}`)
   return data
 }
 
@@ -37,7 +38,7 @@ export const useOAuthLogin = (
 
   useEffect(() => {
     if (queryData.data) {
-      setUserData(queryData.data)
+      setUserData({ ...queryData.data, token: document.cookie.split(/access-token/g)[1] })
     }
   }, [queryData.data])
 
@@ -45,7 +46,7 @@ export const useOAuthLogin = (
     queryData.refetch()
   }, [queryData.refetch])
 
-  const debouncedHandleLoginClick = useDebouncedCallback(handleLoginClick, 2000, true)
+  const debouncedHandleLoginClick = useDebouncedCallback(handleLoginClick, 1000, true)
 
   return { ...queryData, handleLoginClick: debouncedHandleLoginClick }
 }
