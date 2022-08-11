@@ -1,28 +1,14 @@
 import { Image } from '@jaewoong2/dui'
 import React from 'react'
+import { Card } from '../../types'
 import CardBody from './CardBody'
 import CardComment from './CardComment'
 import CardCommentForm from './CardCommentForm'
 import CardHead from './CardHead'
 
-type Props = {
-  user: {
-    nickName: string
-    profileImg: string
-  }
-  description: string
-  images: string[]
-  like: number
-  comments?: {
-    comment: string
-    user: {
-      nickName: string
-      profileImg: string
-    }
-  }[]
-}
+type Props = Card
 
-function CakeCard({ user, like, description, images, comments }: Props) {
+function CakeCard({ user, like, description, images, comments, id }: Props) {
   return (
     <div className="w-[calc(100%-15px)] border mt-2 rounded-lg">
       <figure className="w-full">
@@ -31,9 +17,9 @@ function CakeCard({ user, like, description, images, comments }: Props) {
         <div className="w-[100%] overflow-hidden">
           <Image isLoading={false} alt="피드 이미지" src={images[0]} />
         </div>
-        <CardCommentForm />
+        <CardCommentForm id={id ?? ''} />
         {comments?.map((comment, i) => (
-          <CardComment key={`card - ${1 + i}`} profileImg={comment.user.profileImg}>
+          <CardComment key={`card - ${1 + i}`} profileImg={comment.user.profile?.profileImg}>
             {comment.comment}
           </CardComment>
         ))}

@@ -15,6 +15,10 @@ type API = (
   ctx: RestContext
 ) => Promise<MockedResponse<DefaultBodyType>>
 
+const validateToken = (token: string) => {
+  return token === 'd2f1285d-9f45-4c4c-bb5a-2f919d6de1ce'
+}
+
 const loginBase = (type: 'error' | 'success' | 'delay', ctx: RestContext) => {
   if (type === 'error') {
     return [ctx.status(400)]
@@ -24,6 +28,25 @@ const loginBase = (type: 'error' | 'success' | 'delay', ctx: RestContext) => {
   }
 
   return [ctx.status(200), ctx.cookie('access-token', 'd2f1285d-9f45-4c4c-bb5a-2f919d6de1ce')]
+}
+
+export const getUser: API = async (req, res, ctx) => {
+  if (validateToken(req.cookies['access-token'])) {
+    return res(
+      ctx.status(200),
+      ctx.json({
+        user: {
+          profile: {
+            nickname: 'kakao',
+            profileImg: 'https://i.pravatar.cc/210',
+          },
+          email: 'dalda@kakao.com',
+          phone_number: '010-1234-5678',
+        },
+      })
+    )
+  }
+  return res(ctx.status(400))
 }
 
 export const logout: API = async (_, res, ctx) => {
@@ -48,6 +71,7 @@ export const loginKakao: API = async (_, res, ctx) => {
       user: {
         profile: {
           nickname: 'kakao',
+          profileImg: 'https://i.pravatar.cc/210',
         },
         email: 'dalda@kakao.com',
         phone_number: '010-1234-5678',
@@ -62,6 +86,7 @@ export const loginGoogle: API = async (_, res, ctx) => {
     ctx.json({
       user: {
         profile: {
+          profileImg: 'https://i.pravatar.cc/210',
           nickname: 'google',
         },
         email: 'dalda@google.com',
@@ -90,8 +115,9 @@ export const getFeeds: API = async (_, res, ctx) => {
 export const postFeed: API = async (req, res, ctx) => {
   const { description } = await req.json()
   const feed = {
+    id: `${Math.floor(Math.random() * 250 + 250)}`,
     key: Math.floor(Math.random() * 250 + 250),
-    user: { nickName: '닉네임', profileImg: 'https://i.pravatar.cc/210' },
+    user: { profile: { nickName: '닉네임', profileImg: 'https://i.pravatar.cc/210' } },
     like: Math.floor(Math.random() * 999),
     description,
     images: [`https://picsum.photos/450/${Math.floor(Math.random() * 250 + 250)}`],

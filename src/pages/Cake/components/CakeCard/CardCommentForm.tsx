@@ -1,14 +1,20 @@
+import useGetToken from '@/features/auth/hooks/useGetToken'
+import useGetUserByToken from '@/features/auth/hooks/useGetUserByToken'
 import React from 'react'
 import useForm from '../../hooks/useForm'
+import usePostComment from '../../hooks/usePostComment'
 import Avatar from '../Avatar'
 import SendButton from '../SendButton'
 
-function CardCommentForm() {
+function CardCommentForm({ id }: { id: string }) {
   const [comment, , handleChangeComment] = useForm()
+  const token = useGetToken()
+  const { data } = useGetUserByToken(token)
+  const { handleSubmit } = usePostComment()
 
   return (
     <div className="w-full border mt-2">
-      <form>
+      <form onSubmit={handleSubmit({ comment, user: { profile: data?.user.profile }, id })}>
         <span className="sr-only">Your message</span>
         <div className="flex items-center py-2 px-3 bg-[#FBF7F2]">
           <Avatar className="w-[30px] h-[25px] flex justify-center items-center" />

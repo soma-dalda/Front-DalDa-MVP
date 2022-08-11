@@ -4,7 +4,8 @@ import { UseLoginResult } from '../../types'
 export const defaultValue: UseLoginResult = {
   user: {
     profile: {
-      nickname: null,
+      nickName: '',
+      profileImg: '',
     },
     email: null,
     phone_number: null,

@@ -3,7 +3,8 @@ export type LoginTo = 'naver' | 'google' | 'kakao'
 export type UseLoginResult = {
   user: {
     profile: {
-      nickname: string | null
+      nickName: string
+      profileImg: string
     }
     email: string | null
     phone_number: string | null

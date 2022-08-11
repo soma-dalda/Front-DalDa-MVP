@@ -1,6 +1,7 @@
 export const API = {
   PATH: {
     LOGIN: {
+      GETUSER: '/api/user',
       BASE: '/api/oauth2/authorization',
       KAKAO: '/api/oauth2/authorization/kakao',
       GOOGLE: '/api/oauth2/authorization/google',
@@ -19,6 +20,9 @@ export const API = {
       UPDATE_LIKE: '/api/feed',
       // api/comment/:feedId
       POST_COMMENT: '/api/comment',
+    },
+    OAUTH: {
+      OAUTH_REQUEST: `api/oauth/authorize`,
     },
   },
 }
